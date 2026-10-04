@@ -3,8 +3,10 @@
 from .agent import AgentTool
 from .bash import BashTool
 from .edit import EditFileTool
+from .fetch import FetchUrlTool
 from .glob_tool import GlobTool
 from .grep import GrepTool
+from .now import NowTool
 from .read import ReadFileTool
 from .todo import TodoWriteTool
 from .write import WriteFileTool
@@ -16,7 +18,8 @@ ALL_TOOLS = [
     EditFileTool(),
     GlobTool(),
     GrepTool(),
+    NowTool(),
     TodoWriteTool(),
     AgentTool(),
+    FetchUrlTool(),
 ]
-

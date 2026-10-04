@@ -8,7 +8,7 @@ from tests.conftest import get_tool
 
 
 def test_tool_count():
-    assert len(ALL_TOOLS) == 8
+    assert len(ALL_TOOLS) == 10
 
 
 def test_all_tools_have_valid_schema():
@@ -394,6 +394,14 @@ def test_grep_skips_junk_dirs_inside_root(tmp_path):
     r = grep.execute(pattern="needle", path=str(tmp_path))
     assert "real.py" in r
     assert "node_modules" not in r
+
+
+# --- fetch_url ---
+
+def test_fetch_rejects_non_http():
+    fetch = get_tool("fetch_url")
+    r = fetch.execute(url="file:///etc/passwd")
+    assert "only http" in r
 
 
 # --- agent tool ---
